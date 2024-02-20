@@ -1,0 +1,147 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* nav */
+
+nav{
+    width: 100vw;
+    height: 72px;
+    display: flex;
+    /* background-color: aqua; */
+    align-items: center;
+    margin: 0 auto;
+    /* background-color: #04364A; */
+    justify-content: space-between;
+
+
+}3
+.logo{
+    width:40%;
+    height: 100px;
+ 
+    text-align: center;
+ 
+    /* background-color: red; */
+
+}
+.logo img{
+    width: 80px;
+    border-radius: 50%;
+    margin-top: 10px;
+}
+
+ ul{
+    
+    display: flex;
+    align-items: center;
+list-style: none;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 50vh;
+    margin: auto;
+}
+ul li a{
+    text-decoration: none;
+    color: #04364A;
+    font-weight: bold;
+    box-shadow: 4px 5px 4px #04364A;
+    padding: 5px 10px;
+    border-radius: 40px;
+transition: 0.5s;
+    /* background-color: #4f5354; */
+}
+ul li a:hover{
+
+     background-color: #04364A;
+     color: white;
+}
+.banner{
+    margin-top: 20px;
+    width: 100vw;
+    height: 440px;
+    /* background-color: #548294; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 5px 5px #d5e2e78a;
+}
+.banner img {
+    width: 95vw;
+    height: 400px;
+    
+}
+.about{
+    margin-top: 50px;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.img{
+    height: 80%;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.about .img img{
+    width: 80%;
+    border-radius: 20px 80px;
+    height: 80%;
+}
+.about p{
+ font-size: 30px;
+ font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+ color: #4f5354;
+
+}
+.about p span{
+    font-size: 60px;
+    color: #04364A;
+    font-weight: bold;
+}
+.big{
+    font-size: 100px !important;
+}
+
+/* .content{
+    width: 100vw;
+    height: 70vh;
+    background-color: aqua;
+}
+.flex {
+    width: 80%;
+    height: 100px;
+    /* background-color: #548294; */
+/* align-items: center;
+justify-content: center;
+    display: flex;
+}
+.title{
+    margin: auto;
+    font-size: 25px;
+    font-family:'Times New Roman', Times, serif;
+
+} */
+/* .title span{
+    color: #04364A;
+    font-weight: bold;
+    font-size: 30px;
+}
+.title .large{
+    font-size: 80px;
+
+}
+.content_img{
+    width: 80%;
+    height: 400px;
+    margin: auto;
+}
+.content_img img{
+    width: 80%;
+    margin: auto;
+} */ 

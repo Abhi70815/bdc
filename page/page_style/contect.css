@@ -1,0 +1,44 @@
+body{
+    background: #908ea578;
+}
+
+
+.arrow{
+    font-size: 50px;
+    position:fixed;
+    left:60px;
+}
+.contect{
+     width: 100vw;
+     height: 100vh;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+}
+form{
+    width: 300px;
+    height: 400px;
+    text-align: center;
+    background-color: rgb(93, 95, 95);
+    border-radius: 40px;
+}
+input , textarea{
+    padding: 10px;
+    width: 200px;
+}
+.footer{
+    text-align: center;
+    height: 150px;
+    width: 100vw;
+    position: relative;
+    bottom: 0;
+    color: #686363;
+
+  }
+  .footer p{
+ 
+     position: absolute;
+     bottom: 0;
+     left: 80vh;
+     
+  }
