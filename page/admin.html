@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Importent Data</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+           
+  background: rgb(67,200,242);
+  background: radial-gradient(circle, rgba(67,200,242,0.8127626050420168) 4%, rgba(25,234,138,0.23573179271708689) 64%, rgba(0,255,76,0.07886904761904767) 100%);
+}
+        
+        .data-container {
+            margin-top: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: azure;
+            width: 80vw;
+            margin: auto;
+        }
+        .query-item {
+            margin-bottom: 10px;
+            padding: 25px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+        }
+        
+
+        /* payment */
+
+        #payment-records {
+    width: 80vw;
+    margin: 40px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: azure;
+}
+
+#payment-records h2 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+#payment-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#payment-table th, #payment-table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+
+#payment-table th {
+    background-color: #f0f0f0;
+}
+
+#payment-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+#payment-table tr:hover {
+    background-color: #f2f2f2;
+}
+
+
+    </style>
+</head>
+<body>
+
+    <h1>Buddha Degree college Students Queries</h1>
+    <div class="data-container" id="data-container">
+        <h2>Admission Related Queries:</h2>
+        <div id="output"></div>
+    </div>
+
+    <section id="payment-records">
+        <h2>Fee Payment Records</h2>
+        <table id="payment-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Roll No</th>
+                    <th>Branch</th>
+                    <th>Phone</th>
+                    <th>Amount</th>
+                </tr>
+            </thead>
+            <tbody id="payment-list">
+                <!-- Payment records will be displayed here -->
+            </tbody>
+        </table>
+    </section>
+
+    <script>
+        // Retrieve the admission queries from localStorage
+        const admissionQueries = localStorage.getItem('admissionQueries');
+        
+        // Check if data exists
+        if (admissionQueries) {
+            // Parse the JSON string back to an array
+            const queriesData = JSON.parse(admissionQueries);
+            
+            // Prepare output HTML
+            let outputHTML = '';
+            queriesData.forEach(query => {
+                outputHTML += `
+                    <div class="query-item">
+                        <strong>Name:</strong> ${query.name} <br>
+                        <strong>Email:</strong> ${query.email} <br>
+                        <strong>Message:</strong> ${query.message}
+                    </div>
+                `;
+            });
+            document.getElementById('output').innerHTML = outputHTML;
+        } else {
+            document.getElementById('output').innerText = 'No admission queries found in local storage.';
+        }
+
+
+
+        // payment
+
+        // Function to display payment records
+function displayPaymentRecords() {
+    const paymentRecords = JSON.parse(localStorage.getItem('feePayments'));
+    const paymentList = document.getElementById('payment-list');
+
+    paymentList.innerHTML = ''; // Clear the table body
+
+    if (paymentRecords) {
+        paymentRecords.forEach((payment) => {
+            const tableRow = document.createElement('tr');
+            tableRow.innerHTML = `
+                <td>${payment.name}</td>
+                <td>${payment.rollno}</td>
+                <td>${payment.branch}</td>
+                <td>${payment.phone}</td>
+                <td>${payment.amount}</td>
+            `;
+            paymentList.appendChild(tableRow);
+        });
+    }
+}
+
+// Call the function to display payment records
+displayPaymentRecords();
+    </script>
+
+</body>
+</html>

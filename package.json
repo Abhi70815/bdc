@@ -1,0 +1,25 @@
+{
+  "type": "module",
+  "dependencies": {
+    "firebase": "^10.14.1"
+  },
+  "name": "bdc",
+  "description": "\"# BDC\"",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://abhishek_chaurasia_1@bitbucket.org/buddhadegreecollege/abhishek-chaurasia.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://bitbucket.org/buddhadegreecollege/abhishek-chaurasia/issues"
+  },
+  "homepage": "https://bitbucket.org/buddhadegreecollege/abhishek-chaurasia#readme"
+}
