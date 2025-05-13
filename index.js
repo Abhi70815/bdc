@@ -1,5 +1,7 @@
 // Retrieve the admission queries from localStorage
 const admissionQueries = localStorage.getItem('admissionQueries');
+
+let ApiUrl="https://bdc-backend-krt3.onrender.com";
 query()
 
 // Check if data exists
@@ -26,7 +28,7 @@ function query(){
 
 async function deleteQuery(id){
     try {
-        const response = await fetch(`http://localhost:4000/query/${id}`, { method: "DELETE" });
+        const response = await fetch(`https://bdc-backend-krt3.onrender.com/query/${id}`, { method: "DELETE" });
         if (response.ok) {
             console.log("Query deleted successfully");
             fetchQuery();
@@ -77,7 +79,7 @@ function handleSubmit(e) {
     const message = document.getElementById('message').value;
 
     try {
-        fetch('http://localhost:4000/query', {
+        fetch('https://bdc-backend-krt3.onrender.com/query', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -105,7 +107,7 @@ function handleSubmit(e) {
 // Function to fetch queries
 async function fetchQuery() {
     try {
-        const response = await fetch("http://localhost:4000/query");
+        const response = await fetch("https://bdc-backend-krt3.onrender.com/query");
         const data = await response.json();
         console.log(data.data);
         localStorage.setItem('admissionQueries', JSON.stringify(data.data));
@@ -120,7 +122,7 @@ fetchQuery();
 // Function to fetch payments
 async function fetchPayment() {
     try {
-        const res = await fetch("http://localhost:4000/payment");
+        const res = await fetch("https://bdc-backend-krt3.onrender.com/payment");
         const data = await res.json();
         console.log(data);
         localStorage.setItem('Payments', JSON.stringify(data.data));
@@ -158,7 +160,7 @@ async function newPayment(e) {
 // Function to delete a payment
 async function deletePayment(id) {
     try {
-        const res = await fetch(`http://localhost:4000/payment/${id}`, { method: "DELETE" });
+        const res = await fetch(`https://bdc-backend-krt3.onrender.com/payment/${id}`, { method: "DELETE" });
         const data = await res.json();
         console.log(data);
         alert("payment record deleted successful.")
