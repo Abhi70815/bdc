@@ -1,81 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Importent Data</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Important Data</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 20px;
-           
-  background: rgb(67,200,242);
-  background: radial-gradient(circle, rgba(67,200,242,0.8127626050420168) 4%, rgba(25,234,138,0.23573179271708689) 64%, rgba(0,255,76,0.07886904761904767) 100%);
-}
-        
+            background: #f0f4f8;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            font-weight: 700;
+            font-size: 2.5rem;
+            text-align: center;
+        }
+
         .data-container {
             margin-top: 20px;
             padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            background-color: azure;
+            background-color: white;
             width: 80vw;
-            margin: auto;
+            max-width: 900px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
+
         .query-item {
-            margin-bottom: 10px;
-            padding: 25px;
-            border: 1px solid #ddd;
-            border-radius: 3px;
+            margin-bottom: 15px;
+            padding: 20px 20px 20px 30px;
+            border-radius: 8px;
+            background-color: #e3f2fd;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            position: relative;
+            transition: background-color 0.3s ease;
         }
-        
+        .query-item:hover {
+            background-color: #bbdefb;
+        }
+
+        .delete-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: #e53935;
+            border: none;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+            transition: background-color 0.3s ease;
+        }
+        .delete-btn:hover {
+            background-color: #b71c1c;
+        }
 
         /* payment */
 
         #payment-records {
-    width: 80vw;
-    margin: 40px auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background-color: azure;
-}
+            width: 80vw;
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
 
-#payment-records h2 {
-    color: #333;
-    margin-bottom: 20px;
-}
+        #payment-records h2 {
+            color: #333;
+            margin-bottom: 20px;
+            font-weight: 700;
+            font-size: 1.8rem;
+            text-align: center;
+        }
 
-#payment-table {
-    width: 100%;
-    border-collapse: collapse;
-}
+        #payment-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 10px;
+        }
 
-#payment-table th, #payment-table td {
-    border: 1px solid #ccc;
-    padding: 10px;
-    text-align: left;
-}
+        #payment-table th,
+        #payment-table td {
+            padding: 12px 15px;
+            text-align: left;
+        }
 
-#payment-table th {
-    background-color: #f0f0f0;
-}
+        #payment-table th {
+            background-color: #e3f2fd;
+            font-weight: 600;
+            color: #333;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
 
-#payment-table tr:nth-child(even) {
-    background-color: #f9f9f9;
-}
+        #payment-table tbody tr {
+            background-color: #e3f2fd;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
 
-#payment-table tr:hover {
-    background-color: #f2f2f2;
-}
+        #payment-table tbody tr:hover {
+            background-color: #bbdefb;
+        }
 
+        #payment-table td {
+            border: none;
+        }
 
+        #payment-table td button.delete-btn {
+            position: static;
+            background-color: #e53935;
+            border: none;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+            transition: background-color 0.3s ease;
+        }
+        #payment-table td button.delete-btn:hover {
+            background-color: #b71c1c;
+        }
     </style>
 </head>
 <body>
-
-    <h1>Buddha Degree college Students Queries</h1>
+    <h1>Buddha Degree College Students Queries</h1>
     <div class="data-container" id="data-container">
         <h2>Admission Related Queries:</h2>
         <div id="output"></div>
@@ -91,6 +155,7 @@
                     <th>Branch</th>
                     <th>Phone</th>
                     <th>Amount</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody id="payment-list">
@@ -99,60 +164,6 @@
         </table>
     </section>
 
-    <script>
-        // Retrieve the admission queries from localStorage
-        const admissionQueries = localStorage.getItem('admissionQueries');
-        
-        // Check if data exists
-        if (admissionQueries) {
-            // Parse the JSON string back to an array
-            const queriesData = JSON.parse(admissionQueries);
-            
-            // Prepare output HTML
-            let outputHTML = '';
-            queriesData.forEach(query => {
-                outputHTML += `
-                    <div class="query-item">
-                        <strong>Name:</strong> ${query.name} <br>
-                        <strong>Email:</strong> ${query.email} <br>
-                        <strong>Message:</strong> ${query.message}
-                    </div>
-                `;
-            });
-            document.getElementById('output').innerHTML = outputHTML;
-        } else {
-            document.getElementById('output').innerText = 'No admission queries found in local storage.';
-        }
-
-
-
-        // payment
-
-        // Function to display payment records
-function displayPaymentRecords() {
-    const paymentRecords = JSON.parse(localStorage.getItem('feePayments'));
-    const paymentList = document.getElementById('payment-list');
-
-    paymentList.innerHTML = ''; // Clear the table body
-
-    if (paymentRecords) {
-        paymentRecords.forEach((payment) => {
-            const tableRow = document.createElement('tr');
-            tableRow.innerHTML = `
-                <td>${payment.name}</td>
-                <td>${payment.rollno}</td>
-                <td>${payment.branch}</td>
-                <td>${payment.phone}</td>
-                <td>${payment.amount}</td>
-            `;
-            paymentList.appendChild(tableRow);
-        });
-    }
-}
-
-// Call the function to display payment records
-displayPaymentRecords();
-    </script>
-
+    <script src="/index.js"></script>
 </body>
 </html>

@@ -1,0 +1,14 @@
+/* Copy of the existing style.css content */
+/* (I will copy the entire content of the current style.css here) */
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+body{
+  background: rgb(67,200,242);
+  background: radial-gradient(circle, rgba(67,200,242,0.8127626050420168) 4%, rgba(25,234,138,0.23573179271708689) 64%, rgba(0,255,76,0.07886904761904767) 100%);
+}
+
+/* ... rest of the style.css content ... */
