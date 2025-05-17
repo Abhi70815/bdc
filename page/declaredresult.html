@@ -143,7 +143,7 @@
             resultDisplay.style.display = 'none';
             downloadBtn.style.display = 'none';
             try {
-                const response = await fetch(`http://localhost:4000/result/${userId}`);
+                const response = await fetch(`https://bdc-backend-krt3.onrender.com/result/${userId}`);
                 if (!response.ok) {
                     throw new Error('Result not found for the given User ID.');
                 }

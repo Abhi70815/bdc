@@ -162,7 +162,7 @@
     <script>
         async function fetchAllResults() {
             try {
-                const response = await fetch('http://localhost:4000/result');
+                const response = await fetch('https://bdc-backend-krt3.onrender.com/result');
                 const results = await response.json();
                 const tbody = document.getElementById('resultsBody');
                 tbody.innerHTML = '';
