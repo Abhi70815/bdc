@@ -3,6 +3,7 @@ const app = express();
 const mongoose = require('mongoose');
 const PaymentRouter = require('./routes/paymentRoute');
 const queryRouter = require('./routes/enquiryRoute');
+const resultRouter = require('./routes/resultRoute')
 const cors = require('cors');
 require('dotenv').config();
 
@@ -18,6 +19,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(PaymentRouter);
 app.use(queryRouter);
+app.use(resultRouter)
 
 app.get('/', (req, res) => {
   res.send("Server is running");
