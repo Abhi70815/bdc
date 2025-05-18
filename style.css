@@ -75,7 +75,7 @@ ul li a:hover{
   color: rgb(180 192 197);
   top: 35px;
   right: 70px;
-   /* display: none; */
+   display: none;
 }
 #open{
   position: absolute;
@@ -101,20 +101,26 @@ marquee img{
 }
 /* nav responsive */
 
+
 @media (max-width:1000px) {
+  .main{
+    display: block;
+  }
  
   #nav_links{
-    flex-direction: column;
-    position: absolute;
-    top:100px;
-    right: 0;
-    height: 400px;
-    gap: 30px;
-    background-color: #46494b;
-    align-items: center;
-    justify-content: center;
-    z-index:1;
-    /* display: none; */
+   flex-direction: column;
+        position: absolute;
+        top: 100px;
+        right: 0;
+        /* height: 400px; */
+        gap: 30px;
+        padding: 30px;
+        background-color: #46494b;
+        align-items: center;
+        justify-content: center;
+        z-index: 1;
+        border-radius: 10px;
+        background: #37474F;
     
   }
   /* #nav_links{
